@@ -42,4 +42,16 @@ body {
   background: black;
   position: absolute;
   top: 50%;
+
+  /*Transform the origin*/
+  transform-origin: right;
+
+  /*Offset by 90 deg*/
+  transform: rotate(90deg);
+
+  /*Give transition to effect*/
+  transition: all 0.05s;
+
+  /*Give tick effect to hands*/
+  transition-timing-function: cubic-bezier(0, 2.18, 0.58, 1);
 }
