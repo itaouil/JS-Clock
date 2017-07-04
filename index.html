@@ -13,13 +13,46 @@
     <div class="clock">
       <div class="clock-face">
         <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand sec-hand"></div>
+        <div class="hand minute-hand"></div>
+        <div class="hand second-hand"></div>
       </div>
     </div>
 
   <script>
-    
+
+    // Select hands
+    const hourHand = document.querySelector(".hour-hand");
+    const minuteHand = document.querySelector(".minute-hand");
+    const secondHand = document.querySelector(".second-hand");
+
+    // Set date baby
+    function setDate() {
+
+      // Get current date
+      const now = new Date();
+
+      // Get time instaces
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      // Get hands to degree proportion
+      const hoursDegrees = ((hours * 360) / 12) + 90;
+      const minutesDegrees = ((minutes * 360) / 60) + 90;
+      const secondsDegrees = ((seconds * 360) / 60) + 90;
+
+      // Apply time to hands
+      hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+      minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+      console.log(secondsDegrees);
+
+    }
+
+    // Run function every second
+    setInterval(setDate, 1000);
+
   </script>
 
   </body>
